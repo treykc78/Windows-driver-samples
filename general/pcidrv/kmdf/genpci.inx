@@ -20,7 +20,7 @@
 Signature      = "$WINDOWS NT$"
 Class          = Sample
 ClassGuid      = {78A1C341-4539-11d3-B88D-00C04FAD5171}
-Provider       = %MSFT%
+Provider       = %ProviderString%
 DriverVer      = 03/20/2003,5.00.3788
 CatalogFile    = KmdfSamples.cat
 
@@ -46,22 +46,13 @@ HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system
 ExcludeFromSelect = *
 
 [Manufacturer]
-%MSFT%=MSFT,NT$ARCH$
+%ManufacturerString%=MSFT,NT$ARCH$
 
 [SourceDisksFiles]
 pcidrv.sys     = 1
 
 [SourceDisksNames]
 1=%DISK_NAME%,
-
-; For Win2K
-[MSFT]
-; DisplayName            Section           DeviceId
-; -----------            -------           --------
-%GenPCI.DRVDESC%=GenPCI_Inst, PCI\VEN_8086&DEV_1229
-%GenPCI.DRVDESC%=GenPCI_Inst, PCI\VEN_8086&DEV_103D
-%GenPCI.DRVDESC%=GenPCI_Inst, PCI\VEN_8086&DEV_1031
-%GenPCI.DRVDESC%=GenPCI_Inst, PCI\VEN_8086&DEV_1038
 
 ; For XP and later
 [MSFT.NT$ARCH$]
@@ -120,8 +111,9 @@ KmdfLibraryVersion = $KMDFVERSION$
 ;------------------------------------------------------------------------------
 
 [Strings]
-MSFT           = "Microsoft"
-ClassName      = "Sample Device"
-GenPCI.SVCDESC = "Sample WDF PCI Driver Service for Intel 8255x Ethernet Controller"
-GenPCI.DRVDESC = "Sample WDF PCI Driver for Intel 8255x Ethernet Controller"
-DISK_NAME      = "GenPCI Sample Install Disk"
+ProviderString     = "TODO-Set-Provider"
+ManufacturerString = "TODO-Set-Manufacturer"
+ClassName          = "Sample Device"
+GenPCI.SVCDESC     = "Sample WDF PCI Driver Service for Intel 8255x Ethernet Controller"
+GenPCI.DRVDESC     = "Sample WDF PCI Driver for Intel 8255x Ethernet Controller"
+DISK_NAME          = "GenPCI Sample Install Disk"

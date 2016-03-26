@@ -144,12 +144,12 @@ NTSTATUS InitializeTransferPackets(PDEVICE_OBJECT Fdo)
 
             minWorkingSetTransferPackets = MIN_WORKINGSET_TRANSFER_PACKETS_Client;
 
-        // Note: the reason we use max here is to guarantee a reasonable large max number 
+        // Note: the reason we use max here is to guarantee a reasonable large max number
         // in the case where the port driver may return a very small supported outstanding
         // IOs. For example, even EMMC drive only reports 1 outstanding IO supported, we
-        // may still want to set this value to be at least 
+        // may still want to set this value to be at least
         // MAX_WORKINGSET_TRANSFER_PACKETS_Client.
-        maxWorkingSetTransferPackets = max(MAX_WORKINGSET_TRANSFER_PACKETS_Client, 
+        maxWorkingSetTransferPackets = max(MAX_WORKINGSET_TRANSFER_PACKETS_Client,
                                            2 * maxOutstandingIOPerLUN);
 
     } else {
@@ -157,16 +157,16 @@ NTSTATUS InitializeTransferPackets(PDEVICE_OBJECT Fdo)
         // this is Server SKU
         // Note: the addition max here to make sure we set the min to be at least 
         // MIN_WORKINGSET_TRANSFER_PACKETS_Server_LowerBound no matter what maxOutstandingIOPerLUN 
-        // reported. We shouldn’t set this value to be smaller than client system. 
+        // reported. We shouldn't set this value to be smaller than client system. 
         // In other words, the minWorkingSetTransferPackets for server will always between 
         // MIN_WORKINGSET_TRANSFER_PACKETS_Server_LowerBound and MIN_WORKINGSET_TRANSFER_PACKETS_Server_UpperBound
 
-        minWorkingSetTransferPackets = 
-            max(MIN_WORKINGSET_TRANSFER_PACKETS_Server_LowerBound, 
-                min(MIN_WORKINGSET_TRANSFER_PACKETS_Server_UpperBound, 
+        minWorkingSetTransferPackets =
+            max(MIN_WORKINGSET_TRANSFER_PACKETS_Server_LowerBound,
+                min(MIN_WORKINGSET_TRANSFER_PACKETS_Server_UpperBound,
                     maxOutstandingIOPerLUN));
 
-        maxWorkingSetTransferPackets = max(MAX_WORKINGSET_TRANSFER_PACKETS_Server, 
+        maxWorkingSetTransferPackets = max(MAX_WORKINGSET_TRANSFER_PACKETS_Server,
                                            2 * maxOutstandingIOPerLUN);
     }
 
@@ -823,6 +823,7 @@ VOID SetupReadWriteTransferPacket(  PTRANSFER_PACKET Pkt,
     Pkt->NumRetries = fdoData->MaxNumberOfIoRetries;
     Pkt->SyncEventPtr = NULL;
     Pkt->CompleteOriginalIrpWhenLastPacketCompletes = TRUE;
+    Pkt->NumIoTimeoutRetries = fdoData->MaxNumberOfIoRetries;
 
 
     if (pCdb) {
@@ -1451,6 +1452,7 @@ VOID SetupDriveCapacityTransferPacket(   TRANSFER_PACKET *Pkt,
     PCLASS_PRIVATE_FDO_DATA fdoData = fdoExt->PrivateFdoData;
     PCDB pCdb;
     ULONG srbLength;
+    ULONG timeoutValue = fdoExt->TimeOutValue;
 
     if (fdoExt->AdapterDescriptor->SrbType == SRB_TYPE_STORAGE_REQUEST_BLOCK) {
         srbLength = ((PSTORAGE_REQUEST_BLOCK) fdoData->SrbTemplate)->SrbLength;
@@ -1464,7 +1466,9 @@ VOID SetupDriveCapacityTransferPacket(   TRANSFER_PACKET *Pkt,
     SrbSetOriginalRequest(Pkt->Srb, Pkt->Irp);
     SrbSetSenseInfoBuffer(Pkt->Srb, &Pkt->SrbErrorSenseData);
     SrbSetSenseInfoBufferLength(Pkt->Srb, sizeof(Pkt->SrbErrorSenseData));
-    SrbSetTimeOutValue(Pkt->Srb, fdoExt->TimeOutValue);
+
+
+    SrbSetTimeOutValue(Pkt->Srb, timeoutValue);
     SrbSetDataBuffer(Pkt->Srb, ReadCapacityBuffer);
     SrbSetDataTransferLength(Pkt->Srb, ReadCapacityBufferLen);
 
@@ -1489,6 +1493,8 @@ VOID SetupDriveCapacityTransferPacket(   TRANSFER_PACKET *Pkt,
 
     Pkt->OriginalIrp = OriginalIrp;
     Pkt->NumRetries = NUM_DRIVECAPACITY_RETRIES;
+    Pkt->NumIoTimeoutRetries = NUM_DRIVECAPACITY_RETRIES;
+
     Pkt->SyncEventPtr = SyncEventPtr;
     Pkt->CompleteOriginalIrpWhenLastPacketCompletes = FALSE;
 }

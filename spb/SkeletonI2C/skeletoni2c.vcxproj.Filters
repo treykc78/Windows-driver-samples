@@ -3,19 +3,19 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;*</Extensions>
-      <UniqueIdentifier>{37426773-F628-425E-981B-E4265FDB33F9}</UniqueIdentifier>
+      <UniqueIdentifier>{FB780344-5D6B-417C-AF29-2AEF28ACDABE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-      <UniqueIdentifier>{C7EFBD4E-0814-4137-BC2F-E62AEC040D23}</UniqueIdentifier>
+      <UniqueIdentifier>{E951BA09-BC5C-4109-A597-C43EF84D0C73}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms;man;xml</Extensions>
-      <UniqueIdentifier>{C68A1A41-6F14-4755-9338-C517FFC56AC6}</UniqueIdentifier>
+      <UniqueIdentifier>{DA64D74C-5224-42DB-B9FC-91148D4DC554}</UniqueIdentifier>
     </Filter>
     <Filter Include="Driver Files">
       <Extensions>inf;inv;inx;mof;mc;</Extensions>
-      <UniqueIdentifier>{9455FD0C-B897-4788-A02B-5CE9F02EEE04}</UniqueIdentifier>
+      <UniqueIdentifier>{AFA014CD-3F5B-4893-BB99-29C47F1D4B66}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,9 +33,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FilesToPackage Include=".\Debug\\skeletoni2c.inf">
-      <Filter>Driver Files</Filter>
-    </FilesToPackage>
     <Inf Include=".\skeletoni2c.inx">
       <Filter>Driver Files</Filter>
     </Inf>

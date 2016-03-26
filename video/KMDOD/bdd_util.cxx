@@ -63,17 +63,17 @@ MapFrameBuffer(
         return STATUS_INVALID_PARAMETER;
     }
 
-    *VirtualAddress = MmMapIoSpace(PhysicalAddress,
+    *VirtualAddress = MmMapIoSpaceEx(PhysicalAddress,
                                    Length,
-                                   MmWriteCombined);
+                                   PAGE_READWRITE | PAGE_WRITECOMBINE);
     if (*VirtualAddress == NULL)
     {
         // The underlying call to MmMapIoSpace failed. This may be because, MmWriteCombined
         // isn't supported, so try again with MmNonCached
 
-        *VirtualAddress = MmMapIoSpace(PhysicalAddress,
+        *VirtualAddress = MmMapIoSpaceEx(PhysicalAddress,
                                        Length,
-                                       MmNonCached);
+                                       PAGE_READWRITE | PAGE_NOCACHE);
         if (*VirtualAddress == NULL)
         {
             BDD_LOG_LOW_RESOURCE1("MmMapIoSpace returned a NULL buffer when trying to allocate 0x%I64x bytes", Length);

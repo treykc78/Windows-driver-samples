@@ -61,7 +61,7 @@ Return Value:
 
     NTSTATUS Status;
 
-    CCaptureDevice *CapDevice = new (NonPagedPool) CCaptureDevice (Device);
+    CCaptureDevice *CapDevice = new (NonPagedPoolNx, 'veDC') CCaptureDevice (Device);
 
     if (!CapDevice) {
         //
@@ -167,7 +167,7 @@ Return Value:
     //
     if (NT_SUCCESS(Status) && (!m_Device -> Started)) {
 
-        m_HardwareSimulation = new (NonPagedPool) CHardwareSimulation (this);
+        m_HardwareSimulation = new (NonPagedPoolNx, 'miSH') CHardwareSimulation (this);
         if (!m_HardwareSimulation) {
             //
             // If we couldn't create the hardware simulation, fail.
@@ -388,7 +388,7 @@ Return Value:
             // can be in either orientation.  The origin is lower left if
             // height < 0.  Otherwise, it's upper left.
             //
-            m_ImageSynth = new (NonPagedPool, 'RysI') 
+            m_ImageSynth = new (NonPagedPoolNx, 'RysI') 
                 CRGB24Synthesizer (
                     m_VideoInfoHeader -> bmiHeader.biHeight >= 0
                     );
@@ -400,7 +400,7 @@ Return Value:
             //
             // If we're UYVY, create the YUV synth.
             //
-            m_ImageSynth = new(NonPagedPool, 'YysI') CYUVSynthesizer;
+            m_ImageSynth = new(NonPagedPoolNx, 'YysI') CYUVSynthesizer;
     
         }
         else

@@ -66,6 +66,18 @@ void __cdecl operator delete(void* pObject)
     }
 }
 
+//
+// size_t version is needed for VS2015(C++ 14).  
+// 
+void __cdecl operator delete(void* pObject, size_t s)
+{
+    PAGED_CODE();
+
+    UNREFERENCED_PARAMETER( s );
+
+    ::operator delete( pObject );
+}
+
 void __cdecl operator delete[](void* pObject)
 {
     PAGED_CODE();

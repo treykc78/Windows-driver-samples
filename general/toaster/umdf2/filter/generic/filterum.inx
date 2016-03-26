@@ -12,7 +12,7 @@
 Signature="$WINDOWS NT$"
 Class=TOASTER
 ClassGuid={B85B7C50-6A01-11d2-B841-00C04FAD5171}
-Provider=%MSFT%
+Provider=%ProviderString%
 DriverVer=06/16/1999,5.00.2064
 CatalogFile=wudf.cat
 
@@ -89,7 +89,7 @@ ServiceBinary=%12%\UMDF\filterum.dll
 
 [Strings]
 SPSVCINST_ASSOCSERVICE= 0x00000002
-MSFT = "Microsoft"
+ProviderString = "TODO-Set-Provider"
 StdMfg = "(Standard system devices)"
 DiskId1 = "WDF Sample Toaster Installation Disk #1"
 WdfSimpleDevice.DeviceDesc = "Sample WDF Toaster Service + Filter"

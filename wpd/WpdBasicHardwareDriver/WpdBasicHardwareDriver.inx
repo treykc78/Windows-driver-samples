@@ -11,9 +11,9 @@ CatalogFile=WpdBasicHardwareDriver.cat
 DriverVer=01/24/2007,1.1.1.1
 
 [Manufacturer]
-%MSFTWUDF%=Microsoft,NT$ARCH$
+%Mfg%=Standard,NT$ARCH$
 
-[Microsoft.NT$ARCH$]
+[Standard.NT$ARCH$]
 %BasicDeviceName%=Basic_Install,WUDF\WpdBasicHardware
 
 [SourceDisksFiles]
@@ -75,7 +75,7 @@ WpdBasicHardwareDriver.dll
 ; =================== Generic ==================================
 
 [Strings]
-MSFTWUDF="Microsoft Windows Portable Devices"
-Provider="Microsoft WPD"
+Mfg="Windows Portable Devices"
+Provider="TODO-Set-Provider"
 MediaDescription="WPD Basic Hardware Driver Installation Media"
 BasicDeviceName="WPD Basic Hardware Driver"

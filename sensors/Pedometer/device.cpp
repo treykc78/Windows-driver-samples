@@ -133,7 +133,7 @@ PedometerDevice::Initialize(
     m_pData->Count = PEDOMETER_DATA_COUNT;
 
     m_pData->List[PEDOMETER_DATA_TIMESTAMP].Key = PKEY_SensorData_Timestamp;
-    GetSystemTimeAsFileTime(&Time);
+    GetSystemTimePreciseAsFileTime(&Time);
     InitPropVariantFromFileTime(&Time, &(m_pData->List[PEDOMETER_DATA_TIMESTAMP].Value));
 
     m_pData->List[PEDOMETER_DATA_FIRST_AFTER_RESET].Key = PKEY_SensorData_PedometerReset;
@@ -248,7 +248,7 @@ PedometerDevice::Initialize(
 
     m_pEnumerationProperties->List[SENSOR_SUPPORTED_STEPTYPES].Key = PKEY_SensorData_SupportedStepTypes;
     InitPropVariantFromUInt32(PedometerStepType_Unknown | PedometerStepType_Walking | PedometerStepType_Running,
-        &(m_pEnumerationProperties->List[SENSOR_PROPERTY_SUPPORTED_STEPTYPES].Value));
+        &(m_pEnumerationProperties->List[SENSOR_SUPPORTED_STEPTYPES].Value));
 
     // Sensor Properties
     m_Interval = Pedometer_Default_MinDataInterval_Ms;

@@ -3,19 +3,19 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;*</Extensions>
-      <UniqueIdentifier>{CFE8A049-4352-4797-A933-02B2457B9660}</UniqueIdentifier>
+      <UniqueIdentifier>{B669D948-3401-4ED3-A372-17F5ACB06C88}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-      <UniqueIdentifier>{EA19AC8F-5C37-4641-AAFA-4924984AF0F7}</UniqueIdentifier>
+      <UniqueIdentifier>{6BF69C07-3C57-4B3E-B476-2FE25863C4E7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms;man;xml</Extensions>
-      <UniqueIdentifier>{D407D40B-9D6E-4731-85DE-808B502FF92E}</UniqueIdentifier>
+      <UniqueIdentifier>{C8335578-FDE2-4937-A4B4-983F51CC74A2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Driver Files">
       <Extensions>inf;inv;inx;mof;mc;</Extensions>
-      <UniqueIdentifier>{39E92CE4-17AE-463E-B0CB-746990AE72D1}</UniqueIdentifier>
+      <UniqueIdentifier>{CE1E380F-0E2C-4AB0-A135-46775B8C4371}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,9 +39,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FilesToPackage Include=".\Debug\\pci9x5x.inf">
-      <Filter>Driver Files</Filter>
-    </FilesToPackage>
     <Inf Include=".\pci9x5x.inx">
       <Filter>Driver Files</Filter>
     </Inf>

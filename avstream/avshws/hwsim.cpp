@@ -142,7 +142,7 @@ Return Value:
     PAGED_CODE();
 
     CHardwareSimulation *HwSim = 
-        new (NonPagedPool) CHardwareSimulation (HardwareSink);
+        new (NonPagedPoolNx, 'miSH') CHardwareSimulation (HardwareSink);
 
     return HwSim;
 
@@ -220,7 +220,7 @@ Return Value:
     //
     m_SynthesisBuffer = reinterpret_cast <PUCHAR> (
         ExAllocatePoolWithTag (
-            NonPagedPool,
+            NonPagedPoolNx,
             m_ImageSize,
             AVSHWS_POOLTAG
             )
@@ -242,7 +242,7 @@ Return Value:
             &m_ScatterGatherLookaside,
             NULL,
             NULL,
-            0,
+            POOL_NX_ALLOCATION,
             sizeof (SCATTER_GATHER_ENTRY),
             'nEGS',
             0

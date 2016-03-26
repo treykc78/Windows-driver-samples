@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\common\xdsmplcmn.vcxproj">
+      <Project>{5DBE2309-E951-4840-A138-3284BD2B61C6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\debug\xdsdbg.vcxproj">
+      <Project>{5DD79EE3-3778-4674-9537-70EA840F13B4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\booklet\xdbook.vcxproj">
+      <Project>{0230CB91-5810-491F-83CA-BFEF080C100C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\color\XDColMan.vcxproj">
+      <Project>{9D2A1569-C11C-42CE-BF2F-86A10E869BB3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\common\xdfltcmn.vcxproj">
+      <Project>{FBC26C8C-2B0B-4394-8477-C40A418C5540}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\nup\xdnup.vcxproj">
+      <Project>{5F377CEC-1783-4793-96E7-FF05DF1770D7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\scaling\xdscale.vcxproj">
+      <Project>{5B69A33D-2119-49E7-961F-136998752761}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\watermark\xdwmark.vcxproj">
+      <Project>{EEEB99E0-6403-4D91-AC46-9894657F2295}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\filters\xdcont\xdcont.vcxproj">
+      <Project>{7B6DB6B7-543A-4FBB-B4A0-F9542C934D46}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\src\ui\xdsmplui.vcxproj">
+      <Project>{F6900780-9A02-439C-A7F1-D10CEBEE2CA3}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="PropertySheets">
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <ConfigurationType>Utility</ConfigurationType>
+    <DriverType>Package</DriverType>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6DC00584-D5C7-430E-98EA-9B103C5DC293}</ProjectGuid>
+    <SampleGuid>{1C40097E-EA72-4247-A54E-023A86EDDB06}</SampleGuid>
+    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <TargetVersion>Windows10</TargetVersion>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup>
+    <DebuggerFlavor>DbgengRemoteDebugger</DebuggerFlavor>
+    <ImportToStore>False</ImportToStore>
+    <InstallMode>None</InstallMode>
+    <HardwareIdString />
+    <CommandLine />
+    <ScriptPath />
+    <DeployFiles />
+    <ScriptName />
+    <ScriptDeviceQuery>%PathToInf%</ScriptDeviceQuery>
+    <EnableVerifier>False</EnableVerifier>
+    <AllDrivers>False</AllDrivers>
+    <VerifyProjectOutput>True</VerifyProjectOutput>
+    <VerifyDrivers />
+    <VerifyFlags>133563</VerifyFlags>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -217,6 +217,97 @@ public:
 
 *************************************************/
 
+/*++
+
+Routine Description:
+
+    Array delete() operator.
+
+Arguments:
+
+    pVoid -
+        The memory to free.
+
+Return Value:
+
+    None
+
+--*/
+inline 
+void 
+__cdecl 
+operator delete[](
+	PVOID pVoid
+)
+{
+	if (pVoid)
+	{
+		ExFreePool(pVoid);
+	}
+}
+
+/*++
+
+Routine Description:
+
+    Sized delete() operator.
+
+Arguments:
+
+    pVoid -
+        The memory to free.
+
+    size -
+        The size of the memory to free.
+
+Return Value:
+
+    None
+
+--*/
+inline void __cdecl operator delete
+(
+	void *pVoid,
+	size_t /*size*/
+)
+{
+	if (pVoid)
+	{
+		ExFreePool(pVoid);
+	}
+}
+
+/*++
+
+Routine Description:
+
+    Sized delete[]() operator.
+
+Arguments:
+
+    pVoid -
+        The memory to free.
+
+    size -
+        The size of the memory to free.
+
+Return Value:
+
+    None
+
+--*/
+inline void __cdecl operator delete[]
+(
+	void *pVoid,
+	size_t /*size*/
+)
+{
+	if (pVoid)
+	{
+		ExFreePool(pVoid);
+	}
+}
+
 /*************************************************
 
     Internal Includes

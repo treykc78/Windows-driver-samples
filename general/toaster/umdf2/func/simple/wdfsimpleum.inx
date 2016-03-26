@@ -17,7 +17,7 @@
 Signature="$WINDOWS NT$"
 Class=TOASTER
 ClassGuid={B85B7C50-6A01-11d2-B841-00C04FAD5171}
-Provider=%MSFT%
+Provider=%ProviderString%
 DriverVer=03/20/2003,5.00.3788
 CatalogFile=wudf.cat
 
@@ -88,7 +88,7 @@ ServiceBinary=%12%\UMDF\wdfsimpleum.dll
 
 [Strings]
 SPSVCINST_ASSOCSERVICE= 0x00000002
-MSFT = "Microsoft"
+ProviderString = "TODO-Set-Provider"
 StdMfg = "(Standard system devices)"
 DiskId1 = "WDF Sample Toaster Installation Disk #1"
 Toaster.DeviceDesc = "Sample UMDF Toaster Driver - simple"

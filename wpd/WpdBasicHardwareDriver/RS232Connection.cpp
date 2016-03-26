@@ -48,8 +48,8 @@ RS232Connection::RS232Connection()
     // so that our reader thread will continue execution.
     //
 
-    COMMTIMEOUTS m_TimeoutsDefault = { 25, 0, 0, 0, 0 };
-    m_timeoutsnew   = m_TimeoutsDefault;
+    m_TimeoutsDefault = { 25, 0, 0, 0, 0 };
+    m_timeoutsnew = m_TimeoutsDefault;
 
     //
     // read state and status events

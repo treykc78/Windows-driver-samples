@@ -23,7 +23,7 @@
 signature="$WINDOWS NT$"
 Class=Media
 ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
-Provider=%Msft%
+Provider=%ProviderName%
 Catalogfile=avshws.cat
 DriverVer=08/31/2006,6.0.5600.0
 
@@ -41,18 +41,18 @@ avshws.CopyFiles=12
 avshws.sys
 
 [Manufacturer]
-%Msft%=Microsoft,NTx86,NTamd64,ntarm,ntarm64
+%ManufacturerName%=Standard,NTx86,NTamd64,ntarm,ntarm64
 
-[Microsoft.NTx86]
+[Standard.NTx86]
 %avshws.DeviceDesc%=avshws.NTx86,AVSHWS
 
-[Microsoft.NTamd64]
+[Standard.NTamd64]
 %avshws.DeviceDesc%=avshws.NTamd64,AVSHWS
 
-[Microsoft.NTarm]
+[Standard.NTarm]
 %avshws.DeviceDesc%=avshws.NTarm,AVSHWS
 
-[Microsoft.NTarm64]
+[Standard.NTarm64]
 %avshws.DeviceDesc%=avshws.NTarm64,AVSHWS
 
 ;---------------------------------------------------------------
@@ -166,7 +166,8 @@ SERVICE_ERROR_NORMAL=1
 REG_DWORD=0x00010001
 
 ;localizable
-Msft="Microsoft"
+ProviderName="TODO-Set-Provider"
+ManufacturerName="TODO-Set-Manufacturer"
 avshws.DeviceDesc="AVStream Simulated Hardware Sample"
 avshws.Reader.FriendlyName="avshws Source"
 cdname="AVSHWS Installation Disk"

@@ -67,7 +67,7 @@ Return Value:
 
     NTSTATUS Status = STATUS_SUCCESS;
 
-    CCaptureFilter *CapFilter = new (NonPagedPool) CCaptureFilter (Filter);
+    CCaptureFilter *CapFilter = new (NonPagedPoolNx, 'liFC') CCaptureFilter (Filter);
 
     if (!CapFilter) {
         //

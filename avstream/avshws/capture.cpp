@@ -120,7 +120,7 @@ Return Value:
 
     NTSTATUS Status = STATUS_SUCCESS;
 
-    CCapturePin *CapPin = new (NonPagedPool) CCapturePin (Pin);
+    CCapturePin *CapPin = new (NonPagedPoolNx, 'niPC') CCapturePin (Pin);
 
     if (!CapPin) {
         //
@@ -266,7 +266,7 @@ Return Value:
 
     m_VideoInfoHeader = reinterpret_cast <PKS_VIDEOINFOHEADER> (
         ExAllocatePoolWithTag (
-            NonPagedPool,
+            NonPagedPoolNx,
             KS_SIZE_VIDEOHEADER (ConnectionHeader),
             AVSHWS_POOLTAG
             )

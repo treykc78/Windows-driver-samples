@@ -10,7 +10,7 @@
 Signature="$WINDOWS NT$"
 Class=Sample
 ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171}
-Provider=%MSFT%
+Provider=%ProviderName%
 DriverVer=10/01/2002,6.0.5058.0
 CatalogFile=wudf.cat
 
@@ -28,10 +28,10 @@ HKR,,Icon,,-5
 ; ================= Device section =====================
 
 [Manufacturer]
-%MfgName%=Microsoft,NT$ARCH$
+%ManufacturerName%=Standard,NT$ARCH$
 
 ; For XP and later
-[Microsoft.NT$ARCH$]
+[Standard.NT$ARCH$]
 %USB\VID_045E&PID_930A.DeviceDesc%=osrusbfx2, USB\VID_0547&PID_1002
 
 [osrusbfx2.NT]
@@ -64,7 +64,7 @@ DriverCLSID = "{422d8dbc-520d-4d7e-8f53-920e5c867e6c}"
 ServiceBinary = "%12%\UMDF\WUDFOsrUsbFilter.dll"
 
 [osrusbfx2_wdfsect]
-KmdfLibraryVersion=$KMDFVERSION$
+KmdfLibraryVersion=1.11
 
 [WUDFRD_ServiceInstall]
 DisplayName = %WudfRdDisplayName%
@@ -79,7 +79,6 @@ ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
 StartType      = 3                  ; SERVICE_DEMAND_START
 ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %10%\System32\Drivers\osrusbfx2.sys
-AddReg         = osrusbfx2_AddReg
 
 [osrusbfx2.Files.Ext]
 osrusbfx2.sys
@@ -113,8 +112,8 @@ HKR,,CoInstallers32,0x00010000,"WudfUpdate_$UMDFCOINSTALLERVERSION$.dll"
 ;---------------------------------------------------------------;
 
 [Strings]
-MSFT="Microsoft"
-MfgName="OSR"
+ProviderName="TODO-Set-Provider"
+ManufacturerName="TODO-Set-Manufacturer"
 Disk_Description="OSRUSBFX2 Installation Disk"
 USB\VID_045E&PID_930A.DeviceDesc="Microsoft UMDF OSR Usb Sample Device With Filter on kernel-mode Driver"
 osrusbfx2.SvcDesc="WDF Sample Driver for OSR USB-FX2 Learning Kit"

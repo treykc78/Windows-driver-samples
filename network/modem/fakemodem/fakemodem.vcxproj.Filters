@@ -3,25 +3,22 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;*</Extensions>
-      <UniqueIdentifier>{66A2BE8B-87F0-4F4B-AB28-9C66471A8B7B}</UniqueIdentifier>
+      <UniqueIdentifier>{A97FFE22-8053-4254-B732-19813EA56D71}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-      <UniqueIdentifier>{F31D838F-78A7-4140-B15C-4C9485DDB150}</UniqueIdentifier>
+      <UniqueIdentifier>{0EFEA207-D953-4022-8525-8F1E692F1396}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms;man;xml</Extensions>
-      <UniqueIdentifier>{8A726BCF-D9F0-4948-8219-B0CCAC8AA786}</UniqueIdentifier>
+      <UniqueIdentifier>{A02D00E6-E88A-4342-908F-28483AEF11A5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Driver Files">
       <Extensions>inf;inv;inx;mof;mc;</Extensions>
-      <UniqueIdentifier>{A5962758-E097-4C00-A4FB-3A630B0E5405}</UniqueIdentifier>
+      <UniqueIdentifier>{26FC65B7-1969-4954-BAE5-68FD772BE13E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <FilesToPackage Include=".\Debug\\mdmfake.inf">
-      <Filter>Driver Files</Filter>
-    </FilesToPackage>
     <Inf Include=".\mdmfake.inx">
       <Filter>Driver Files</Filter>
     </Inf>
